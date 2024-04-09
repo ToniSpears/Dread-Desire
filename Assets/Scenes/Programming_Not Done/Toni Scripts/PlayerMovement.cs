@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         else
             rb.drag = 0;
 
+        
     }
     private void FixedUpdate()
     {
@@ -106,16 +107,10 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    
     }
-    public class ExampleClass : MonoBehaviour
-    {
-        void OnDrawGizmosSelected()
-        {
-            // Draw a yellow sphere at the transform's position
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawSphere(transform.position, 1);
-        }
-    }
+
+
 }
 
 
