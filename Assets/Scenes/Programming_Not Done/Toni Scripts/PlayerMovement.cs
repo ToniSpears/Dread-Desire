@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        
+        ResetJump();
 
     }
     void Update()
@@ -54,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         else
             rb.drag = 0;
 
+        
     }
     private void FixedUpdate()
     {
@@ -77,7 +80,8 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         //Jump
-        if (Input.GetKey(jumpKey) && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+
         {
             readyToJump = false;
 
@@ -106,16 +110,10 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    
     }
-    public class ExampleClass : MonoBehaviour
-    {
-        void OnDrawGizmosSelected()
-        {
-            // Draw a yellow sphere at the transform's position
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawSphere(transform.position, 1);
-        }
-    }
+
+
 }
 
 
