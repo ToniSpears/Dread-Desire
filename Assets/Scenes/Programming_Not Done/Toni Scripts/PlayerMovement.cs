@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        
+        ResetJump();
 
     }
     void Update()
@@ -78,7 +80,8 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         //Jump
-        if (Input.GetKey(jumpKey) && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+
         {
             readyToJump = false;
 
