@@ -98,18 +98,29 @@ public class EnemyScript : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    private void TakeDamage(int damage)
+    private void TakeDamage(float damage)
     {
+        Debug.Log("damage");
         health -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 2f);
+        if (health <= 0)
+        {
+            Debug.Log("health");
+            Destroy(gameObject);
+        }
     }
 
     private void DestroyEnemy()
     {
         Destroy(gameObject);
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerProjectile"))
+        {
+            TakeDamage(collision.gameObject.GetComponent<Bullet>().damage);
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
