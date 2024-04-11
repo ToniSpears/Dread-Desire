@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class Bullet_Life : MonoBehaviour
 {
-    private GameObject Enemy;
+    //private GameObject Enemy;
     private Rigidbody rb;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Enemy = GameObject.FindGameObjectWithTag("Enemy");
+        //Enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
+        }
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(this.gameObject);
         }
     }
 }
