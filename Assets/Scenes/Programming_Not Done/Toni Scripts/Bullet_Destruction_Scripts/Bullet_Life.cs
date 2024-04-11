@@ -19,10 +19,10 @@ public class Bullet_Life : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if (other.gameObject.CompareTag("Obstacle"))
-        {
-            Destroy(this.gameObject);
-        }
+        //if (other.gameObject.CompareTag("Obstacle"))
+        //{
+            //Destroy(this.gameObject);
+        //}
     }
 }
 
