@@ -114,13 +114,13 @@ public class EnemyScript : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("PlayerProjectile"))
-        {
-            TakeDamage(collision.gameObject.GetComponent<Bullet>().damage);
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+        //if (collision.gameObject.CompareTag("PlayerProjectile"))
+        //{
+        //    TakeDamage(collision.gameObject.GetComponent<Bullet>().damage);
+        //}
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
