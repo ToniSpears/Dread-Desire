@@ -15,6 +15,7 @@ public class Pistol : MonoBehaviour
     public float timeBetweenShooting, spread, reloadTime, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
+    public float damage = 10f;
 
     int bulletsLeft, bulletsShot;
 
